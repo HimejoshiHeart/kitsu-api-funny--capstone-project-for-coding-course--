@@ -1,0 +1,119 @@
+<head>
+  <title>the lol funny</title>
+  <style>
+    form,
+    .cen {
+      text-align: center;
+    }
+
+    #urmother>* {
+      text-align: center;
+    }
+
+    #hm {
+      background-image: url("/GAY.jpg");
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/submit" method="GET">
+    <label for="person">put username of person here!</label>
+    <input type="text" id="person" name="person">
+    <input type="submit">
+  </form>
+  <% if (locals.avatar) { %>
+  <img src="<%= avatar %>" style="float: left; padding-right: 10px">
+  <h3>
+    <- selected person (ID:#<%= iden %>)</h3>
+      <div>
+        <% if (gn == "f") { %>
+        <%  var prn = "she";
+        %>
+        <%  var prnh = "she has";
+         %>
+        <%  var prnr = "she's";
+          %>
+        <% } else if (gn == "m") { %>
+        <%  var prn = "he";
+        %>
+        <%  var prnh = "he has";
+         %>
+        <%  var prnr = "he's";
+         %>
+        <% } else { %>
+        <%  var prn = "they";
+        %>
+        <%  var prnh = "they have";
+        %>
+        <%  var prnr = "they're";
+        %>
+        <% } %>
+        <p>sooo!!!</p>
+        <p>the person you have selected is...</p>
+
+        <% if (gn == "c") { %>
+        <h3 class="cen"><%= gendie %>. thats the gender!</h3>
+
+        <% } else { %>
+        <h3 class="cen"><%= gendie %>!!!</h3>
+        <% } %>
+        <p>and <%= prnh %>
+
+          <% if (!lover) { %>
+        <h2 class="cen">NO BITCHES!!!!</h2>
+        <% } else { %>
+        stated that <%= prn %>'d like</p>
+        <h2 class="cen">a <%= lover %>!</h2>
+        <% } %>
+        <p>THAT MEANS THATTTTTT!</p>
+        <h1 class="cen"><% if ((gn == "f" && lover == "Waifu") || (gn == "m" && lover == "Husbando")) { %>
+          <div id="hm" min-height="500px" style="color: white"><%= prn %>'s... <i>GAY!!</i></div>
+          <% } else if ((gn == "m" && lover == "Waifu") || (gn == "f" && lover == "Husbando")) { %>
+          <%= prn %>'s... probably not gay.
+          <% } else {%>
+          <%= prn %> MIGHT be gay...? who knows! <i>ASK</i>, MAYBE? (joke)
+          <% } %>
+        </h1>
+        <p>as well, it is time for some PERCENTAGE!!!</p>
+        <p>specifically of!! 20 entires from this persons library!!</p>
+
+        <h4 class="cen"><%= (current*100)/20 %>% Currently Enjoying</h4 class="cen">
+        <h4 class="cen"><%= (planned*100)/20 %>% Planned!</h4 class="cen">
+        <h4 class="cen"><%= (completed*100)/20 %>% Completed!</h4 class="cen">
+        <h4 class="cen"><%= (onhold*100)/20 %>% On Hold.</h4 class="cen">
+        <h4 class="cen"><%= (dropped*100)/20 %>% Dropped!</h4 class="cen">
+        <h3 class="cen"> <% if (most = current) { %>
+          Looks like <%= prnr %> enjoying a bunch of stuff at once!
+          <% } else if (most = planned) { %>
+
+          Looks like <%= prnh %> plenty of plans!
+          <% } else if (most = completed) { %>
+          Looks like <%= prnh %> seen plenty of things!
+
+          <% } else if (most = onhold) { %>
+          Looks like <%= prnr %> putting things on pause for a while!
+
+          <% } else if (most = dropped) { %>
+          Looks like <%= prnh %> picky taste!
+
+          <% } else { %>
+          site broke, it seems!
+          <% } %> </h3>
+
+
+      </div>
+      <div>
+        <p>Now, if we take these stats and apply them to all <%= total %> entries in this person's library..., that implies...</p>
+        <h4 class="cen"><%= ((current*total)/20) %> Currently Enjoying</h4 class="cen">
+            <h4 class="cen"><%= ((planned*total)/20) %> Planned!</h4 class="cen">
+            <h4 class="cen"><%= ((completed*total)/20) %> Completed!</h4 class="cen">
+            <h4 class="cen"><%= ((onhold*total)/20) %> On Hold.</h4 class="cen">
+            <h4 class="cen"><%= ((dropped*total)/20 ) %> Dropped!</h4 class="cen">  
+                <p>Aren't stats and coding fun?</p>
+    </div>
+      <% } %>
+
+
+
+</body>
